@@ -8,10 +8,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "MPVKit", // Keep library name same for code compatibility if possible, or change if needed. 
-            // Actually, if I change the library name, I need to update imports. 
-            // Let's keep library name "MPVKit" but package name "LocalMPVKit". 
-            // Wait, if I change package name, the identity changes.
+            name: "MPVKit",
             targets: ["MPVKit"]),
     ],
     targets: [
@@ -49,7 +46,8 @@ let package = Package(
                 .linkedLibrary("xml2"),
                 .linkedLibrary("resolv"),
                 .linkedLibrary("c++"),
-                .linkedLibrary("expat")
+                .linkedLibrary("expat"),
+                .linkedLibrary("MoltenVK")
             ]
         ),
         .binaryTarget(name: "Libmpv", path: "XCFrameworks/Libmpv.xcframework"),
