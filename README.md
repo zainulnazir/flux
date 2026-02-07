@@ -41,4 +41,4 @@ Flux is a modern, native macOS media center built with SwiftUI. It allows you to
 Only intended for educational purposes. See [DISCLAIMER.md](DISCLAIMER.md) for more details.
 
 ## License
-MIT
+MIT - See [CREDITS.md](CREDITS.md) for third-party licenses and attributions.
