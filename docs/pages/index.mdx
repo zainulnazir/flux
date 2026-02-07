@@ -2,56 +2,132 @@
 title: Flux - Native macOS Media Center
 ---
 
-import { Zap, Monitor, PlayCircle, Gauge, Sparkles, ShieldCheck, Github, Download } from 'lucide-react'
+import { Zap, Monitor, PlayCircle, Gauge, Sparkles, ShieldCheck, Github, Download, ArrowRight, Command } from 'lucide-react'
+import Link from 'next/link'
 
-<div className="hero-container">
-  <h1 className="hero-title">Flux</h1>
-  <p className="hero-subtitle">The ultimate native macOS media center. <br/>Fast, beautiful, and open-source.</p>
+export default function LandingPage() {
+  return (
+    <div className="landing-page">
   
-  <div className="cta-group">
-    <a href="https://github.com/zainulnazir/flux/releases" className="btn btn-primary" target="_blank">
-      <Download size={20} /> <span>Download Now</span>
-    </a>
-    <a href="https://github.com/zainulnazir/flux" className="btn btn-secondary" target="_blank">
-      <Github size={20} /> <span>Star on GitHub</span>
-    </a>
-  </div>
-</div>
+  {/* Navbar / Header */}
+  <nav className="marketing-nav">
+    <div className="nav-content">
+      <div className="logo">
+        <span className="logo-icon">F</span>
+        <span className="logo-text">Flux</span>
+      </div>
+      <div className="nav-links">
+        <Link href="/docs" className="nav-link">Documentation</Link>
+        <Link href="/docs/features" className="nav-link">Features</Link>
+        <a href="https://github.com/zainulnazir/flux" target="_blank" className="nav-icon"><Github size={20} /></a>
+      </div>
+    </div>
+  </nav>
 
-<div className="features-grid">
-  <div className="feature-card">
-    <div className="feature-icon"><Zap size={32} color="#FF3B30" /></div>
-    <h3 className="feature-title">Native Performance</h3>
-    <p className="feature-desc">Built purely with SwiftUI for a smooth, responsive experience that feels right at home on macOS.</p>
-  </div>
-  
-  <div className="feature-card">
-    <div className="feature-icon"><Monitor size={32} color="#FF9500" /></div>
-    <h3 className="feature-title">Glass Aesthetic</h3>
-    <p className="feature-desc">Premium translucent UI using the latest macOS design language. Looks stunning in Light and Dark mode.</p>
-  </div>
+  {/* Hero Section */}
+  <section className="hero">
+    <div className="hero-content">
+      <div className="badge">
+        <span className="badge-text">v1.0 is now available</span>
+        <ArrowRight size={14} />
+      </div>
+      <h1 className="hero-title">
+        The ultimate media <br /> center for macOS.
+      </h1>
+      <p className="hero-subtitle">
+        Native, fast, and beautiful. Flux brings your library to life <br className="hidden-mobile"/> with a stunning glass interface and robust MPV playback.
+      </p>
+      
+      <div className="hero-cta">
+        <a href="https://github.com/zainulnazir/flux/releases" className="btn btn-primary">
+          <Download size={18} /> Download for Mac
+        </a>
+        <Link href="/docs" className="btn btn-secondary">
+          Read the Docs
+        </Link>
+      </div>
 
-  <div className="feature-card">
-    <div className="feature-icon"><PlayCircle size={32} color="#30B0C7" /></div>
-    <h3 className="feature-title">Powerful Playback</h3>
-    <p className="feature-desc">Custom MPV-based engine handles 4K, HDR, MKV, and almost any format you throw at it.</p>
-  </div>
+      <div className="hero-image-container">
+        <div className="hero-glow"></div>
+        <div className="app-window">
+            <div className="window-header">
+                <div className="window-controls">
+                    <span className="control close"></span>
+                    <span className="control minimize"></span>
+                    <span className="control maximize"></span>
+                </div>
+            </div>
+            <div className="window-content placeholder-ui">
+                <div className="sidebar-placeholder"></div>
+                <div className="grid-placeholder">
+                    <div className="card-placeholder"></div>
+                    <div className="card-placeholder"></div>
+                    <div className="card-placeholder"></div>
+                    <div className="card-placeholder"></div>
+                    <div className="card-placeholder"></div>
+                    <div className="card-placeholder"></div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div className="feature-card">
-    <div className="feature-icon"><Gauge size={32} color="#AF52DE" /></div>
-    <h3 className="feature-title">Flux Mode</h3>
-    <p className="feature-desc">Intelligent stream racing automatically finds and plays the fastest source for instant playback.</p>
-  </div>
-  
-  <div className="feature-card">
-    <div className="feature-icon"><Sparkles size={32} color="#FFD60A" /></div>
-    <h3 className="feature-title">Smart Discovery</h3>
-    <p className="feature-desc">Integrated with TMDB for trending lists, search, and "For You" AI-based recommendations.</p>
-  </div>
+  {/* Features Grid */}
+  <section className="features">
+    <div className="section-header">
+      <h2>Designed for Apple Silicon.</h2>
+      <p>Built from the ground up to be blazing fast on Apple Silicon.</p>
+    </div>
 
-  <div className="feature-card">
-    <div className="feature-icon"><ShieldCheck size={32} color="#32D74B" /></div>
-    <h3 className="feature-title">Open Source</h3>
-    <p className="feature-desc">Transparent, secure, and free. No tracking, no ads, just pure entertainment.</p>
-  </div>
-</div>
+    <div className="bento-grid">
+      <div className="bento-card large">
+        <div className="card-content">
+            <div className="icon-wrapper"><Zap size={32} /></div>
+            <h3>Native Performance</h3>
+            <p>Written in Swift and SwiftUI. No Electron, no web views. Just pure, native code that launches instantly and sips battery.</p>
+        </div>
+      </div>
+      
+      <div className="bento-card">
+        <div className="card-content">
+            <div className="icon-wrapper"><Monitor size={32} /></div>
+            <h3>Glass Aesthetic</h3>
+            <p>A translucent UI that blurs the line between your content and your desktop.</p>
+        </div>
+      </div>
+
+      <div className="bento-card">
+         <div className="card-content">
+            <div className="icon-wrapper"><PlayCircle size={32} /></div>
+            <h3>MPV Engine</h3>
+            <p>Plays 4K HDR, Dolby Vision, and every format imaginable seamlessly.</p>
+         </div>
+      </div>
+
+      <div className="bento-card wide">
+         <div className="card-content">
+            <div className="icon-wrapper"><Gauge size={32} /></div>
+            <h3>Flux Mode</h3>
+            <p>Intelligent stream racing technology. We check multiple sources in parallel and lock onto the fastest one before you can even blink.</p>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Footer */}
+  <footer className="marketing-footer">
+    <div className="footer-content">
+      <div className="footer-left">
+         <span className="logo-text">Flux</span>
+         <p>© {new Date().getFullYear()} Zainul Nazir. Open Source (MIT).</p>
+      </div>
+      <div className="footer-right">
+        <a href="https://github.com/zainulnazir/flux">GitHub</a>
+        <a href="https://twitter.com/zainulnazir">Twitter</a>
+      </div>
+    </div>
+  </footer>
+    </div>
+  )
+}

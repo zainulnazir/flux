@@ -5,7 +5,7 @@ export default {
     project: {
         link: 'https://github.com/zainulnazir/flux'
     },
-    docsRepositoryBase: 'https://github.com/zainulnazir/flux/tree/main/docs',
+    docsRepositoryBase: 'https://github.com/zainulnazir/flux/tree/main/docs/pages/docs',
     useNextSeoProps() {
         return {
             titleTemplate: '%s – Flux'

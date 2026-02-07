@@ -63,3 +63,5 @@ flux/GoogleService-Info.plist
 # Keep example secrets if you want to provide a template
 !flux/Services/Secrets.example.swift
 node_modules/
+.next/
+out/
