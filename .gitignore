@@ -1,6 +1,7 @@
 # Xcode
 #
 build/
+DerivedData/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -12,12 +13,11 @@ build/
 xcuserdata/
 *.xccheckout
 *.moved-aside
-DerivedData/
 *.hmap
 *.ipa
 *.xg
-*.xccheckout
 *.xcscmblueprint
+*.xccheckout
 
 # Swift Package Manager
 #
@@ -26,23 +26,14 @@ DerivedData/
 
 # CocoaPods
 #
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#checking-in-your-source-code
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Pods directory
 # Pods/
 
 # Carthage
 #
-# Add this line if you want to avoid checking in source code from Carthage dependencies
 # Carthage/Checkouts
 
 # fastlane
 #
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate them.
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
@@ -53,15 +44,47 @@ fastlane/test_output
 iOSInjectionProject/
 
 # Mac OS
+#
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX
 
-# Flux Specific Secrets
-# Exclude actual secrets files
+# IDEs
+#
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment and Secrets
+#
+.env
+.env.local
+.env.*.local
+*.secret
 flux/Services/Secrets.swift
 flux/GoogleService-Info.plist
-
-# Keep example secrets if you want to provide a template
 !flux/Services/Secrets.example.swift
+
+# Node / Next.js
+#
 node_modules/
 .next/
 out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# General
+#
+*.log
+*.tmp
+*.bak
+*.zip
+*.tar.gz
