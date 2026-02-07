@@ -1,0 +1,460 @@
+import Foundation
+
+// MARK: - Generic Response
+struct TMDBResponse<T: Codable>: Codable {
+    let page: Int
+    let results: [T]
+    let totalPages: Int
+    let totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
+
+// MARK: - Movie
+struct TMDBMovie: Codable, Identifiable {
+    let id: Int
+    let title: String
+    let overview: String?
+    let posterPath: String?
+    let backdropPath: String?
+    let releaseDate: String?
+    let voteAverage: Double?
+    let popularity: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title, overview, popularity
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+    }
+    
+    nonisolated var posterURL: URL? {
+        guard let path = posterPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
+    
+    nonisolated var backdropURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w780\(path)")
+    }
+    
+    nonisolated var heroURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w1280\(path)")
+    }
+}
+
+// MARK: - TV Show
+struct TMDBTVShow: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let overview: String?
+    let posterPath: String?
+    let backdropPath: String?
+    let firstAirDate: String?
+    let voteAverage: Double?
+    let popularity: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, overview, popularity
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case firstAirDate = "first_air_date"
+        case voteAverage = "vote_average"
+    }
+    
+    nonisolated var posterURL: URL? {
+        guard let path = posterPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
+    
+    nonisolated var backdropURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w780\(path)")
+    }
+    
+    nonisolated var heroURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w1280\(path)")
+    }
+}
+
+// MARK: - Credits
+struct TMDBCredits: Codable {
+    let cast: [TMDBCastMember]
+    let crew: [TMDBCrewMember]
+}
+
+struct TMDBCastMember: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let character: String
+    let profilePath: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, character
+        case profilePath = "profile_path"
+    }
+    
+    nonisolated var profileURL: URL? {
+        guard let path = profilePath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
+}
+
+struct TMDBCrewMember: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let job: String
+    let profilePath: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, job
+        case profilePath = "profile_path"
+    }
+}
+
+// MARK: - Videos
+struct TMDBVideoResponse: Codable {
+    let id: Int
+    let results: [TMDBVideo]
+}
+
+struct TMDBVideo: Codable, Identifiable {
+    let id: String
+    let key: String
+    let name: String
+    let site: String
+    let type: String
+    
+    var thumbnailURL: URL? { URL(string: "https://img.youtube.com/vi/\(key)/maxresdefault.jpg") }
+    var youtubeURL: URL? { URL(string: "https://www.youtube.com/watch?v=\(key)") }
+}
+
+// MARK: - Watch Providers
+struct TMDBWatchProviderResponse: Codable {
+    let id: Int
+    let results: [String: TMDBProviderRegion]
+}
+
+struct TMDBProviderRegion: Codable {
+    let link: String?
+    let flatrate: [TMDBWatchProvider]?
+    let rent: [TMDBWatchProvider]?
+    let buy: [TMDBWatchProvider]?
+}
+
+struct TMDBWatchProvider: Codable, Identifiable {
+    let provider_id: Int
+    let provider_name: String
+    let logo_path: String?
+    
+    var id: Int { provider_id }
+    
+    nonisolated var logoURL: URL? {
+        guard let path = logo_path else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
+    
+    nonisolated func externalURL(for title: String) -> URL? {
+        let titleString = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        
+        switch provider_name.lowercased() {
+        case let name where name.contains("netflix"):
+            return URL(string: "https://www.netflix.com/search?q=\(titleString)")
+        case let name where name.contains("amazon") || name.contains("prime"):
+            return URL(string: "https://www.amazon.com/s?k=\(titleString)")
+        case let name where name.contains("disney"):
+            return URL(string: "https://www.disneyplus.com/search?q=\(titleString)")
+        case let name where name.contains("apple") || name.contains("tv+"):
+            return URL(string: "https://tv.apple.com/search?term=\(titleString)")
+        case let name where name.contains("hulu"):
+            return URL(string: "https://www.hulu.com/search?q=\(titleString)")
+        case let name where name.contains("hbo") || name.contains("max"):
+            return URL(string: "https://play.max.com/search?q=\(titleString)")
+        case let name where name.contains("peacock"):
+            return URL(string: "https://www.peacocktv.com/search?q=\(titleString)")
+        case let name where name.contains("paramount"):
+             return URL(string: "https://www.paramountplus.com/search/?q=\(titleString)")
+        default:
+             // Fallback to Google Search
+             return URL(string: "https://www.google.com/search?q=watch+\(titleString)+on+\(provider_name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")")
+        }
+    }
+}
+
+// MARK: - Details
+struct TMDBGenre: Codable, Identifiable {
+    let id: Int
+    let name: String
+}
+
+struct TMDBSpokenLanguage: Codable {
+    let english_name: String
+    let iso_639_1: String
+    let name: String
+}
+
+struct TMDBProductionCountry: Codable {
+    let iso_3166_1: String
+    let name: String
+}
+
+struct TMDBMovieDetail: Codable, Identifiable {
+    let id: Int
+    let title: String
+    let overview: String?
+    let posterPath: String?
+    let backdropPath: String?
+    let releaseDate: String?
+    let voteAverage: Double?
+    let runtime: Int?
+    let genres: [TMDBGenre]?
+    let spokenLanguages: [TMDBSpokenLanguage]?
+    let productionCountries: [TMDBProductionCountry]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title, overview, genres, runtime
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+        case spokenLanguages = "spoken_languages"
+        case productionCountries = "production_countries"
+    }
+    
+    nonisolated var posterURL: URL? {
+        guard let path = posterPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
+    
+    nonisolated var backdropURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w780\(path)")
+    }
+    
+    nonisolated var heroURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w1280\(path)")
+    }
+    
+    nonisolated func toMediaItem() -> MediaItem {
+        MediaItem(
+            tmdbID: id,
+            title: title,
+            description: overview ?? "",
+            imageURL: backdropURL ?? posterURL,
+            posterURL: posterURL,
+            backdropURL: backdropURL,
+            heroURL: heroURL,
+            streamURL: nil,
+            category: "Movie",
+            progress: nil,
+            trailerURL: nil,
+            cast: nil,
+            seasons: nil,
+            runtime: runtime.map { "\($0 / 60)h \($0 % 60)m" },
+            certification: nil, 
+            genres: genres?.map { $0.name },
+            popularity: nil,
+            releaseDate: releaseDate,
+            spokenLanguages: spokenLanguages?.map { $0.english_name },
+            originCountry: productionCountries?.first?.name,
+            voteAverage: voteAverage
+        )
+    }
+}
+
+struct TMDBTVShowDetail: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let overview: String?
+    let posterPath: String?
+    let backdropPath: String?
+    let firstAirDate: String?
+    let voteAverage: Double?
+    let genres: [TMDBGenre]?
+    let seasons: [TMDBSeasonSummary]?
+    let spokenLanguages: [TMDBSpokenLanguage]?
+    let productionCountries: [TMDBProductionCountry]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, overview, genres, seasons
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case firstAirDate = "first_air_date"
+        case voteAverage = "vote_average"
+        case spokenLanguages = "spoken_languages"
+        case productionCountries = "production_countries"
+    }
+    
+    nonisolated var posterURL: URL? {
+        guard let path = posterPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
+    
+    nonisolated var backdropURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w780\(path)")
+    }
+    
+    nonisolated var heroURL: URL? {
+        guard let path = backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w1280\(path)")
+    }
+    
+    nonisolated func toMediaItem() -> MediaItem {
+        MediaItem(
+            tmdbID: id,
+            title: name,
+            description: overview ?? "",
+            imageURL: backdropURL ?? posterURL,
+            posterURL: posterURL,
+            backdropURL: backdropURL,
+            heroURL: heroURL,
+            streamURL: nil,
+            category: "TV Show",
+            progress: nil,
+            trailerURL: nil,
+            cast: nil,
+            seasons: seasons?.map { $0.toSeason() },
+            runtime: nil,
+            certification: nil,
+            genres: genres?.map { $0.name },
+            popularity: nil,
+            releaseDate: firstAirDate,
+            spokenLanguages: spokenLanguages?.map { $0.english_name },
+            originCountry: productionCountries?.first?.name,
+            voteAverage: voteAverage
+        )
+    }
+}
+
+struct TMDBSeasonSummary: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let overview: String?
+    let posterPath: String?
+    let seasonNumber: Int
+    let episodeCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, overview
+        case posterPath = "poster_path"
+        case seasonNumber = "season_number"
+        case episodeCount = "episode_count"
+    }
+    
+    nonisolated func toSeason() -> Season {
+        Season(
+            id: id,
+            name: name,
+            overview: overview,
+            posterURL: posterPath != nil ? URL(string: "https://image.tmdb.org/t/p/w500\(posterPath!)") : nil,
+            seasonNumber: seasonNumber,
+            episodeCount: episodeCount,
+            episodes: nil // Fetched separately
+        )
+    }
+}
+
+struct TMDBSeasonDetail: Codable {
+    let id: String
+    let name: String
+    let episodes: [TMDBEpisode]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name, episodes
+    }
+}
+
+struct TMDBEpisode: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let overview: String
+    let stillPath: String?
+    let episodeNumber: Int
+    let seasonNumber: Int
+    let airDate: String?
+    let runtime: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, overview
+        case stillPath = "still_path"
+        case episodeNumber = "episode_number"
+        case seasonNumber = "season_number"
+        case airDate = "air_date"
+        case runtime = "runtime"
+    }
+    
+    nonisolated func toEpisode() -> Episode {
+        Episode(
+            id: id,
+            name: name,
+            overview: overview,
+            stillURL: stillPath != nil ? URL(string: "https://image.tmdb.org/t/p/w500\(stillPath!)") : nil, // Thumbnail
+            heroURL: stillPath != nil ? URL(string: "https://image.tmdb.org/t/p/w1280\(stillPath!)") : nil, // Hero Quality
+            episodeNumber: episodeNumber,
+            seasonNumber: seasonNumber,
+            airDate: airDate,
+            runtime: runtime
+        )
+    }
+}
+
+// MARK: - Extensions for MediaItem Conversion
+extension TMDBMovie {
+    nonisolated func toMediaItem() -> MediaItem {
+        MediaItem(
+            tmdbID: id,
+            title: title,
+            description: overview ?? "",
+            imageURL: backdropURL ?? posterURL,
+            posterURL: posterURL,
+            backdropURL: backdropURL,
+            heroURL: backdropPath != nil ? URL(string: "https://image.tmdb.org/t/p/w1280\(backdropPath!)") : nil,
+            streamURL: nil,
+            category: "Movie",
+            progress: nil,
+            trailerURL: nil,
+            cast: nil,
+            seasons: nil,
+            runtime: nil,
+            certification: nil,
+            genres: nil,
+            popularity: popularity,
+            releaseDate: releaseDate
+        )
+    }
+}
+
+extension TMDBTVShow {
+    nonisolated func toMediaItem() -> MediaItem {
+        MediaItem(
+            tmdbID: id,
+            title: name,
+            description: overview ?? "",
+            imageURL: backdropURL ?? posterURL,
+            posterURL: posterURL,
+            backdropURL: backdropURL,
+            heroURL: backdropPath != nil ? URL(string: "https://image.tmdb.org/t/p/w1280\(backdropPath!)") : nil,
+            streamURL: nil,
+            category: "TV Show",
+            progress: nil,
+            trailerURL: nil,
+            cast: nil,
+            seasons: nil,
+            runtime: nil,
+            certification: nil,
+            genres: nil,
+            popularity: popularity,
+            releaseDate: firstAirDate
+        )
+    }
+}
