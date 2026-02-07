@@ -1,0 +1,661 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F73008532EE439BD00E56A23 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F73008522EE439BD00E56A23 /* FirebaseAuth */; };
+		F73008552EE439BD00E56A23 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F73008542EE439BD00E56A23 /* FirebaseCore */; };
+		F73008572EE439BD00E56A23 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F73008562EE439BD00E56A23 /* FirebaseFirestore */; };
+		F79D5CD62EE34E9E0062A21F /* MPVKit in Frameworks */ = {isa = PBXBuildFile; productRef = F79D5CD52EE34E9E0062A21F /* MPVKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7D621262EE1E52200C25560 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7D6210E2EE1E52000C25560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7D621152EE1E52000C25560;
+			remoteInfo = flux;
+		};
+		F7D621302EE1E52200C25560 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7D6210E2EE1E52000C25560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7D621152EE1E52000C25560;
+			remoteInfo = flux;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F7D621162EE1E52000C25560 /* flux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flux.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D621252EE1E52200C25560 /* fluxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fluxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D6212F2EE1E52200C25560 /* fluxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fluxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F7D621182EE1E52000C25560 /* flux */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = flux;
+			sourceTree = "<group>";
+		};
+		F7D621282EE1E52200C25560 /* fluxTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = fluxTests;
+			sourceTree = "<group>";
+		};
+		F7D621322EE1E52200C25560 /* fluxUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = fluxUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7D621132EE1E52000C25560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F79D5CD62EE34E9E0062A21F /* MPVKit in Frameworks */,
+				F73008572EE439BD00E56A23 /* FirebaseFirestore in Frameworks */,
+				F73008552EE439BD00E56A23 /* FirebaseCore in Frameworks */,
+				F73008532EE439BD00E56A23 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D621222EE1E52200C25560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D6212C2EE1E52200C25560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7D6210D2EE1E52000C25560 = {
+			isa = PBXGroup;
+			children = (
+				F7D621182EE1E52000C25560 /* flux */,
+				F7D621282EE1E52200C25560 /* fluxTests */,
+				F7D621322EE1E52200C25560 /* fluxUITests */,
+				F7D621172EE1E52000C25560 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7D621172EE1E52000C25560 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7D621162EE1E52000C25560 /* flux.app */,
+				F7D621252EE1E52200C25560 /* fluxTests.xctest */,
+				F7D6212F2EE1E52200C25560 /* fluxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7D621152EE1E52000C25560 /* flux */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7D621392EE1E52200C25560 /* Build configuration list for PBXNativeTarget "flux" */;
+			buildPhases = (
+				F7D621122EE1E52000C25560 /* Sources */,
+				F7D621132EE1E52000C25560 /* Frameworks */,
+				F7D621142EE1E52000C25560 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F7D621182EE1E52000C25560 /* flux */,
+			);
+			name = flux;
+			packageProductDependencies = (
+				F79D5CD52EE34E9E0062A21F /* MPVKit */,
+				F73008522EE439BD00E56A23 /* FirebaseAuth */,
+				F73008542EE439BD00E56A23 /* FirebaseCore */,
+				F73008562EE439BD00E56A23 /* FirebaseFirestore */,
+			);
+			productName = flux;
+			productReference = F7D621162EE1E52000C25560 /* flux.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F7D621242EE1E52200C25560 /* fluxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7D6213C2EE1E52200C25560 /* Build configuration list for PBXNativeTarget "fluxTests" */;
+			buildPhases = (
+				F7D621212EE1E52200C25560 /* Sources */,
+				F7D621222EE1E52200C25560 /* Frameworks */,
+				F7D621232EE1E52200C25560 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7D621272EE1E52200C25560 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F7D621282EE1E52200C25560 /* fluxTests */,
+			);
+			name = fluxTests;
+			packageProductDependencies = (
+			);
+			productName = fluxTests;
+			productReference = F7D621252EE1E52200C25560 /* fluxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F7D6212E2EE1E52200C25560 /* fluxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7D6213F2EE1E52200C25560 /* Build configuration list for PBXNativeTarget "fluxUITests" */;
+			buildPhases = (
+				F7D6212B2EE1E52200C25560 /* Sources */,
+				F7D6212C2EE1E52200C25560 /* Frameworks */,
+				F7D6212D2EE1E52200C25560 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7D621312EE1E52200C25560 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F7D621322EE1E52200C25560 /* fluxUITests */,
+			);
+			name = fluxUITests;
+			packageProductDependencies = (
+			);
+			productName = fluxUITests;
+			productReference = F7D6212F2EE1E52200C25560 /* fluxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7D6210E2EE1E52000C25560 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					F7D621152EE1E52000C25560 = {
+						CreatedOnToolsVersion = 26.1.1;
+					};
+					F7D621242EE1E52200C25560 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = F7D621152EE1E52000C25560;
+					};
+					F7D6212E2EE1E52200C25560 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = F7D621152EE1E52000C25560;
+					};
+				};
+			};
+			buildConfigurationList = F7D621112EE1E52000C25560 /* Build configuration list for PBXProject "flux" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7D6210D2EE1E52000C25560;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F79D5CD42EE34E9E0062A21F /* XCLocalSwiftPackageReference "flux/LocalPackages/LocalMPVKit" */,
+				F73008512EE439BD00E56A23 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F7D621172EE1E52000C25560 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7D621152EE1E52000C25560 /* flux */,
+				F7D621242EE1E52200C25560 /* fluxTests */,
+				F7D6212E2EE1E52200C25560 /* fluxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7D621142EE1E52000C25560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D621232EE1E52200C25560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D6212D2EE1E52200C25560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7D621122EE1E52000C25560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D621212EE1E52200C25560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D6212B2EE1E52200C25560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7D621272EE1E52200C25560 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7D621152EE1E52000C25560 /* flux */;
+			targetProxy = F7D621262EE1E52200C25560 /* PBXContainerItemProxy */;
+		};
+		F7D621312EE1E52200C25560 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7D621152EE1E52000C25560 /* flux */;
+			targetProxy = F7D621302EE1E52200C25560 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F7D621372EE1E52200C25560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7D621382EE1E52200C25560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F7D6213A2EE1E52200C25560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = flux/flux.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6388Z7T5U;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/flux/LocalPackages/LocalMPVKit/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-Wl,-w";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nemesys.flux;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F7D6213B2EE1E52200C25560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = flux/flux.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6388Z7T5U;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/flux/LocalPackages/LocalMPVKit/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-Wl,-w";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nemesys.flux;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F7D6213D2EE1E52200C25560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nemesys.fluxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flux.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/flux";
+			};
+			name = Debug;
+		};
+		F7D6213E2EE1E52200C25560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nemesys.fluxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flux.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/flux";
+			};
+			name = Release;
+		};
+		F7D621402EE1E52200C25560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nemesys.fluxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = flux;
+			};
+			name = Debug;
+		};
+		F7D621412EE1E52200C25560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nemesys.fluxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = flux;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7D621112EE1E52000C25560 /* Build configuration list for PBXProject "flux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D621372EE1E52200C25560 /* Debug */,
+				F7D621382EE1E52200C25560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7D621392EE1E52200C25560 /* Build configuration list for PBXNativeTarget "flux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D6213A2EE1E52200C25560 /* Debug */,
+				F7D6213B2EE1E52200C25560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7D6213C2EE1E52200C25560 /* Build configuration list for PBXNativeTarget "fluxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D6213D2EE1E52200C25560 /* Debug */,
+				F7D6213E2EE1E52200C25560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7D6213F2EE1E52200C25560 /* Build configuration list for PBXNativeTarget "fluxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D621402EE1E52200C25560 /* Debug */,
+				F7D621412EE1E52200C25560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		F79D5CD42EE34E9E0062A21F /* XCLocalSwiftPackageReference "flux/LocalPackages/LocalMPVKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = flux/LocalPackages/LocalMPVKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F73008512EE439BD00E56A23 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F73008522EE439BD00E56A23 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F73008512EE439BD00E56A23 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F73008542EE439BD00E56A23 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F73008512EE439BD00E56A23 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		F73008562EE439BD00E56A23 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F73008512EE439BD00E56A23 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F79D5CD52EE34E9E0062A21F /* MPVKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MPVKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F7D6210E2EE1E52000C25560 /* Project object */;
+}
