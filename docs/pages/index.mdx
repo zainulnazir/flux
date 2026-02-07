@@ -9,21 +9,6 @@ export default function LandingPage() {
   return (
     <div className="landing-page">
   
-  {/* Navbar / Header */}
-  <nav className="marketing-nav">
-    <div className="nav-content">
-      <div className="logo">
-        <span className="logo-icon">F</span>
-        <span className="logo-text">Flux</span>
-      </div>
-      <div className="nav-links">
-        <Link href="/docs" className="nav-link">Documentation</Link>
-        <Link href="/docs/features" className="nav-link">Features</Link>
-        <a href="https://github.com/zainulnazir/flux" target="_blank" className="nav-icon"><Github size={20} /></a>
-      </div>
-    </div>
-  </nav>
-
   {/* Hero Section */}
   <section className="hero">
     <div className="hero-content">
@@ -115,7 +100,8 @@ export default function LandingPage() {
     </div>
   </section>
 
-  {/* Footer */}
+  {/* Footer is now handled by theme.config but we can keep a custom one for landing if needed, or unify it. 
+      Let's use a simplified unified footer. */}
   <footer className="marketing-footer">
     <div className="footer-content">
       <div className="footer-left">
@@ -124,7 +110,16 @@ export default function LandingPage() {
       </div>
       <div className="footer-right">
         <a href="https://github.com/zainulnazir/flux">GitHub</a>
-        <a href="https://twitter.com/zainulnazir">Twitter</a>
+        <a href="https://instagram.com/zainulnazir">Instagram</a>
+        <a 
+          href="#" 
+          onClick={(e) => {
+             e.preventDefault();
+             window.location.href = `mailto:${'haditbutt7' + '@' + 'gmail.com'}`;
+          }}
+        >
+          Contact
+        </a>
       </div>
     </div>
   </footer>

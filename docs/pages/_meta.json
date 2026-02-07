@@ -13,10 +13,5 @@
     "docs": {
         "title": "Documentation",
         "type": "page"
-    },
-    "contact": {
-        "title": "Contact",
-        "type": "page",
-        "href": "https://twitter.com/zainulnazir"
     }
 }
