@@ -212,11 +212,15 @@ body {
 }
 
 .window-content {
-    aspect-ratio: 16/9;
-    padding: 24px;
-    display: flex;
-    gap: 20px;
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+    /* aspect-ratio removed to let image define height */
+    padding: 0;
+    /* Removed padding for tight fit */
+    display: block;
+    /* flexible */
+    background: #000;
+    /* Fallback */
+    line-height: 0;
+    /* Remove potential bottom gap for inline images */
 }
 
 .sidebar-placeholder {
