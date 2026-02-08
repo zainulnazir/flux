@@ -1,25 +1,53 @@
 :root {
+    /* Core Brand Colors */
     --flux-primary: #FF3B30;
     --flux-gradient-start: #FF3B30;
     --flux-gradient-end: #FF9500;
-    --flux-glass-bg: rgba(255, 255, 255, 0.05);
-    --flux-glass-border: rgba(255, 255, 255, 0.1);
-    --flux-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     --flux-accent-glow: rgba(255, 59, 48, 0.3);
+
+    /* Light Mode Defaults */
+    --flux-bg: #ffffff;
+    --flux-fg: #000000;
+    --flux-glass-bg: rgba(0, 0, 0, 0.05);
+    /* Dark tint on light */
+    --flux-glass-border: rgba(0, 0, 0, 0.1);
+    --flux-header-bg: rgba(255, 255, 255, 0.7);
+    --flux-card-bg: rgba(0, 0, 0, 0.03);
+    --flux-card-hover: rgba(0, 0, 0, 0.06);
+    --flux-text-secondary: rgba(0, 0, 0, 0.6);
+    --flux-text-tertiary: rgba(0, 0, 0, 0.4);
+    --flux-btn-primary-bg: #000;
+    --flux-btn-primary-fg: #fff;
+    --flux-btn-secondary-bg: rgba(0, 0, 0, 0.05);
+    --flux-btn-secondary-fg: #000;
 }
 
 .dark {
-    --flux-glass-bg: rgba(0, 0, 0, 0.3);
-    --flux-glass-border: rgba(255, 255, 255, 0.08);
+    /* Dark Mode Overrides */
+    --flux-bg: #000000;
+    --flux-fg: #ffffff;
+    --flux-glass-bg: rgba(255, 255, 255, 0.05);
+    /* Light tint on dark */
+    --flux-glass-border: rgba(255, 255, 255, 0.1);
+    --flux-header-bg: rgba(0, 0, 0, 0.7);
+    --flux-card-bg: rgba(255, 255, 255, 0.02);
+    --flux-card-hover: rgba(255, 255, 255, 0.05);
+    --flux-text-secondary: rgba(255, 255, 255, 0.6);
+    --flux-text-tertiary: rgba(255, 255, 255, 0.4);
+    --flux-btn-primary-bg: #fff;
+    --flux-btn-primary-fg: #000;
+    --flux-btn-secondary-bg: rgba(255, 255, 255, 0.05);
+    --flux-btn-secondary-fg: #fff;
 }
 
 /* Nextra Overrides for Apple Aesthetic */
 header {
     backdrop-filter: blur(30px) !important;
     -webkit-backdrop-filter: blur(30px) !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: var(--flux-header-bg) !important;
+    border-bottom: 1px solid var(--flux-glass-border) !important;
     height: 64px !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .nextra-nav-container-blur {
@@ -35,14 +63,17 @@ header .flex.items-center.gap-1 {
 body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif !important;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--flux-bg) !important;
+    color: var(--flux-fg) !important;
 }
 
 /* Landing Page Wrapper */
 .landing-page {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--flux-bg);
+    color: var(--flux-fg);
     min-height: 100vh;
     width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hero Section */
@@ -72,7 +103,7 @@ body {
     gap: 0.5rem;
     padding: 0.5rem 1.25rem;
     border-radius: 99px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--flux-glass-bg);
     border: 1px solid var(--flux-glass-border);
     font-size: 0.85rem;
     color: var(--flux-primary);
@@ -86,7 +117,7 @@ body {
     line-height: 1;
     font-weight: 800;
     letter-spacing: -0.04em;
-    background: linear-gradient(to bottom, #fff 40%, rgba(255, 255, 255, 0.6));
+    background: linear-gradient(to bottom, var(--flux-fg) 40%, var(--flux-text-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
@@ -94,7 +125,7 @@ body {
 
 .hero-subtitle {
     font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--flux-text-secondary);
     line-height: 1.5;
     max-width: 700px;
     margin-bottom: 3.5rem;
@@ -121,25 +152,25 @@ body {
 }
 
 .btn-primary {
-    background: #fff;
-    color: #000 !important;
+    background: var(--flux-btn-primary-bg);
+    color: var(--flux-btn-primary-fg) !important;
 }
 
 .btn-primary:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 59, 48, 0.2);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff !important;
+    background: var(--flux-btn-secondary-bg);
+    color: var(--flux-btn-secondary-fg) !important;
     border: 1px solid var(--flux-glass-border);
     backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--flux-glass-bg);
+    border-color: var(--flux-glass-border);
 }
 
 /* App Window Mockup */
@@ -166,10 +197,10 @@ body {
 }
 
 .app-window {
-    background: rgba(10, 10, 10, 0.7);
+    background: var(--flux-card-bg);
     border: 1px solid var(--flux-glass-border);
     border-radius: 16px;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
     overflow: hidden;
@@ -184,7 +215,7 @@ body {
 
 .window-header {
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--flux-glass-bg);
     border-bottom: 1px solid var(--flux-glass-border);
 }
 
@@ -214,13 +245,10 @@ body {
 .window-content {
     /* aspect-ratio removed to let image define height */
     padding: 0;
-    /* Removed padding for tight fit */
     display: block;
-    /* flexible */
     background: #000;
-    /* Fallback */
+    /* Window content should stay black/dark even in light mode for video feel */
     line-height: 0;
-    /* Remove potential bottom gap for inline images */
 }
 
 .sidebar-placeholder {
@@ -261,11 +289,12 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     letter-spacing: -0.03em;
+    color: var(--flux-fg);
 }
 
 .section-header p {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--flux-text-secondary);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -278,7 +307,7 @@ body {
 }
 
 .bento-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--flux-card-bg);
     border: 1px solid var(--flux-glass-border);
     border-radius: 24px;
     padding: 2.5rem;
@@ -300,10 +329,10 @@ body {
 }
 
 .bento-card:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--flux-card-hover);
     border-color: rgba(255, 59, 48, 0.4);
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 59, 48, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 59, 48, 0.1);
 }
 
 .large {
@@ -330,10 +359,11 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
+    color: var(--flux-fg);
 }
 
 .card-content p {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--flux-text-secondary);
     line-height: 1.6;
     font-size: 1.05rem;
 }
@@ -342,7 +372,8 @@ body {
 .marketing-footer {
     border-top: 1px solid var(--flux-glass-border);
     padding: 6rem 1.5rem;
-    background: #000;
+    background: var(--flux-bg);
+    color: var(--flux-fg);
 }
 
 .footer-content {
@@ -359,10 +390,11 @@ body {
     font-weight: 800;
     font-size: 1.25rem;
     letter-spacing: -0.02em;
+    color: var(--flux-fg);
 }
 
 .footer-left p {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--flux-text-tertiary);
     font-size: 0.95rem;
     margin-top: 0.75rem;
 }
@@ -373,14 +405,14 @@ body {
 }
 
 .footer-right a {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--flux-text-secondary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
 }
 
 .footer-right a:hover {
-    color: #fff;
+    color: var(--flux-primary);
 }
 
 /* Responsive Adjustments */
