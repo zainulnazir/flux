@@ -19,6 +19,10 @@ Flux is made possible thanks to the following incredible open-source projects, A
 - **[LevelDB](https://github.com/google/leveldb)**: Fast key-value storage (BSD-3-Clause).
 - **[Swift Protobuf](https://github.com/apple/swift-protobuf)**: Apple's protocol buffer implementation (Apache 2.0).
 
+## Streaming & Playback Services
+- **[Nuvio](https://nuvio.app/)**: Critical infrastructure for stream playback and resolution.
+- **[Webstreamer](https://webstreamer.example.com)**: High-performance streaming backend for media delivery.
+
 ## Documentation & Dashboard (Web)
 - **[Next.js](https://nextjs.org/)**: The React framework for the web (MIT).
 - **[Nextra](https://nextra.site/)**: Next.js based site generator (MIT).
